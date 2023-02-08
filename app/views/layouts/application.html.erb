@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TheGlobalCR</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		
+		<!-- Basic -->
+		<meta charset="UTF-8">
+		<title>The Global CR</title>
+		<meta name="keywords" content="periódico cr costa rica theglobalcr global digital noticias profesional"/>
+		<meta name="description" content="The Global CR - Periódico digital con las noticias más actualizadas de Costa Rica. The Global CR, un diario costarricense. independiente, profesional y serio.">
+		<meta name="author" content="cileto.com">
+		<!-- Favicon -->
+		<link rel="icon" href="img/favicon.png" sizes="32x32"/>
+		<link rel="icon" href="img/favicon.png" sizes="192x192"/>
+		<link rel="apple-touch-icon-precomposed" href="img/favicon.png"/>
+		<meta name="msapplication-TileImage" content="img/favicon.png"/>
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!-- Theme CSS -->
+		<link href="<%= asset_path 'import-style.css' %>" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/16dc5c058a.js" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+		<!-- .site-wrapper -->
+		<div class="site-wrapper" >
+			<!-- Site header -->
+			<header class="site-header">
+				<!-- Mobile header -->
+				<div id="atbs-mobile-header" class="mobile-header visible-xs visible-sm">
+					<div class="mobile-header__inner mobile-header__inner--flex">
+						<div class="header-branding header-branding--mobile mobile-header__section text-left">
+							<div class="header-logo header-logo--mobile flexbox__item text-left">
+								<a href="index.html">
+									<img src="<%= asset_path 'logo.png' %>" alt="logo">
+								</a>
+							</div>
+						</div>
+						<div class="mobile-header__section text-right inverse-text">
+							<button type="submit" class="mobile-header-btn js-search-dropdown-toggle">
+								<i class="mdicon mdicon-search hidden-xs"></i>
+								<i class="mdicon mdicon-search visible-xs-inline-block"></i>
+							</button>
+							<a href="#atbs-offcanvas-primary" class="offcanvas-menu-toggle mobile-header-btn js-atbs-offcanvas-toggle">
+								<i class="mdicon mdicon-menu hidden-xs"></i>
+								<i class="mdicon mdicon-menu visible-xs-inline-block"></i>
+							</a>
+						</div>
+					</div>
+				</div><!-- Mobile header -->
+
+				<div class="header-main hidden-xs hidden-sm">
+					<a href="#atbs-offcanvas-primary" class="offcanvas-menu-toggle navigation-bar-btn js-atbs-offcanvas-toggle btn-menu-bar-icon flex-box align-item-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="27" height="20.75" viewBox="0 0 27 20.75">
+							<path id="Path_1521" data-name="Path 1521" d="M4,6H29M4,15.375H29M4,24.75H14.938" transform="translate(-3 -5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+						</svg>
+					</a>
+
+					<div class="header-social header-social-vertical">
+						<ul class="social-list social-list--sm list-horizontal social-list--inverse">
+							<%= render 'globals/social_icons' %>
+						</ul>
+					</div>
+				</div>
+				<!-- Navigation bar -->
+				<nav class="navigation-bar hidden-xs hidden-sm js-sticky-header-holder">
+					<div class="navigation-bar__inner flexbox-wrap flexbox-center-y">
+						<div class="navigation-bar__section flex-box align-item-center">
+							<div class="header-logo">
+								<a href="index.html">
+									<img src="<%= asset_path 'logo.png' %>" alt="File not found" width="130">
+								</a>
+							</div>
+						</div>
+						<div class="navigation-bar__section navigation-menu-section js-priority-nav">
+							<ul id="menu-main-menu" class="navigation navigation--main navigation--inline">
+								<%= render 'globals/menu_links' %>
+							</ul>
+						</div>
+						<div class="navigation-bar__section">
+							<button type="submit" class="navigation-bar-search navigation-bar-btn js-search-dropdown-toggle"><i class="mdicon mdicon-search"></i> Buscar</button>
+						</div>
+					</div><!-- .navigation-bar__inner -->
+					<div id="header-search-dropdown" class="header-search-dropdown ajax-search is-in-navbar js-ajax-search">
+						<div class="container container--narrow">
+							<form class="search-form search-form--horizontal" method="get" action="/busqueda?q=">
+								<div class="search-form__input-wrap">
+									<input type="text" name="s" class="search-form__input" placeholder="Buscar" value="">
+								</div>
+								<div class="search-form__submit-wrap">
+									<button type="submit" class="search-form__submit btn btn-primary">Buscar</button>
+								</div>
+							</form>
+
+							<div class="search-results">
+								<div class="typing-loader"></div>
+								<div class="search-results__inner"></div>
+							</div>
+						</div>
+					</div><!-- .header-search-dropdown -->
+				</nav><!-- Navigation-bar -->
+			</header><!-- Site header -->
+			<div class="site-content">
+				<%= yield %>
+			</div>
+			<!-- .site-content -->
+			<footer class="site-footer footer-1">
+				<div class="site-footer__section">
+					<div class="site-footer__section-inner inverse-text">
+						<div class="section-row">
+							<div class="section-column section-column-left text-left">
+								<div class="site-logo">
+									<a href="./index.html">
+										<img src="<%= asset_path 'logo.png' %>" alt="logo" width="108">
+									</a>
+								</div>
+							</div>
+							<div class="section-column section-column-center text-center">
+								<nav class="footer-menu text-center">
+									<ul id="menu-footer-menu" class="navigation navigation--footer navigation--inline">
+										<li class="current-menu-item"><a href="index.html">Homepage</a></li>
+										<li><a href="contact.html">Contact</a></li>
+										<li><a href="404.html">404 Page</a></li>
+										<li><a href="search.html">Search Page</a></li>
+										<li><a href="single-1.html">Single Layout</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							<div class="section-column section-column-right text-right section-socials">
+								<ul class="social-list social-list--md list-horizontal">
+									<%= render 'globals/social_icons' %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			<!-- Sticky header -->
+			<div id="atbs-sticky-header" class="sticky-header js-sticky-header">
+				<!-- Navigation bar -->
+				<nav class="navigation-bar navigation-bar--fullwidth hidden-xs hidden-sm">
+					<div class="navigation-bar__inner">
+						<div class="navigation-bar__section">
+							<a href="#atbs-offcanvas-primary"
+							class="offcanvas-menu-toggle navigation-bar-btn js-atbs-offcanvas-toggle">
+								<i class="mdicon mdicon-menu icon--2x"></i>
+							</a>
+							<div class="site-logo header-logo">
+								<a href="index.html">
+									<img src="<%= asset_path 'logo.png' %>" alt="logo">
+								</a>
+							</div>
+						</div>
+
+						<div class="navigation-wrapper navigation-bar__section js-priority-nav">
+							<ul id="menu-main-menu-1" class="navigation navigation--main navigation--inline">
+								<%= render 'globals/menu_links' %>
+							</ul>
+						</div>
+
+						<div class="navigation-bar__section">
+							<a href="#login-modal" class="navigation-bar__login-btn navigation-bar-btn" data-toggle="modal"
+							data-target="#login-modal"><i class="mdicon mdicon-person"></i></a>
+							<button type="submit" class="navigation-bar-btn js-search-dropdown-toggle"><i
+									class="mdicon mdicon-search"></i></button>
+						</div>
+					</div> <!-- .navigation-bar__inner -->
+				</nav><!-- Navigation-bar -->
+			</div><!-- Sticky header -->
+			<!-- Login modal -->
+			<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog"
+				aria-labelledby="login-modal-label">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content login-signup-form">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+									aria-hidden="true">&#10005;</span></button>
+							<div class="modal-title" id="login-modal-label">
+								<ul class="nav nav-tabs js-login-form-tabs" role="tablist">
+									<li role="presentation" class="active"><a href="#login-tab" aria-controls="login-tab" role="tab" data-toggle="tab">Log in</a></li>
+									<li role="presentation"><a href="#signup-tab" aria-controls="signup-tab" role="tab"data-toggle="tab">Sign up</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane fade in active" id="login-tab">
+									<div class="login-with-social">
+										<p>Log in with social account</p>
+										<ul class="social-list social-list--circle list-center ">
+											<%= render 'globals/social_icons' %>
+										</ul>
+									</div>
+									<div class="block-divider"><span>or</span></div>
+									<form name="loginform" id="loginform" action="#" method="post">
+										<p class="login-username">
+											<label for="user_login">Username</label>
+											<input type="text" name="log" id="user_login" class="input" value="" size="20">
+										</p>
+										<p class="login-password">
+											<label for="user_pass">Password</label>
+											<input type="password" name="pwd" id="user_pass" class="input" value="" size="20">
+										</p>
+										<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label></p>
+										<p class="login-submit">
+											<input type="submit" name="wp-submit" id="wp-submit" class="btn btn-block btn-primary" value="Log In">
+											<input type="hidden" name="redirect_to" value="#">
+										</p>
+										<p class="login-lost-password">
+											<a href="#" class="link link--darken">Lost your password?</a>
+										</p>
+									</form>
+								</div>
+								<div role="tabpanel" class="tab-pane fade" id="signup-tab">
+									<form name="registerform" id="registerform" action="#" method="post">
+										<p class="register-username">
+											<label for="user_register">Username</label>
+											<input type="text" name="log" id="user_register" class="input" value="" size="20">
+										</p>
+										<p class="register-password">
+											<label for="user_register_pass">Password</label>
+											<input type="password" name="pwd" id="user_register_pass" class="input" value="" size="20">
+										</p>
+										<p class="register-submit">
+											<input type="submit" name="wp-submit" id="wp-submit-register" class="btn btn-block btn-primary" value="Sign Up">
+											<input type="hidden" name="redirect_to" value="#">
+										</p>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- Login modal -->
+			<!-- Subscribe modal -->
+			<div class="modal fade subscribe-modal" id="subscribe-modal" tabindex="-1" role="dialog"
+				aria-labelledby="subscribe-modal-label">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#10005;</span></button>
+							<h4 class="modal-title" id="subscribe-modal-label">Subscribe</h4>
+						</div>
+						<div class="modal-body">
+							<div class="subscribe-form subscribe-form--horizontal text-center max-width-sm">
+								<p class="typescale-1">
+									Join our <b>868,537</b> subscribers and get access to the latest tools, freebies, product
+									announcements and much more!
+								</p>
+								<div class="subscribe-form__fields">
+									<p>
+										<input type="email" name="EMAIL" placeholder="Your email address" required="">
+										<input type="submit" value="Subscribe" class="btn btn-primary">
+									</p>
+								</div>
+								<small>Don't worry, we don't spam</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- Subscribe modal -->
+			<!-- Off-canvas menu -->
+			<div id="atbs-offcanvas-primary" class="atbs-offcanvas js-atbs-offcanvas js-perfect-scrollbar">
+				<div class="atbs-offcanvas__title">
+					<h2 class="site-logo"><a href="index.html"><img src="<%= asset_path 'logo.png' %>" alt="logo"></a></h2>
+					<ul class="social-list list-horizontal">
+						<%= render 'globals/social_icons' %>
+					</ul>
+					<a href="#atbs-offcanvas-primary" class="atbs-offcanvas-close js-atbs-offcanvas-close"
+					aria-label="Close"><span aria-hidden="true">&#10005;</span></a>
+				</div>
+
+				<div class="atbs-offcanvas__section atbs-offcanvas__section-navigation">
+					<ul id="menu-offcanvas-menu" class="navigation navigation--offcanvas">
+					<%= render 'globals/menu_links' %>
+					</ul>
+				</div>
+
+				<div class="atbs-offcanvas__section visible-xs visible-sm">
+					<div class="text-center">
+						<a href="#login-modal" class="btn btn-default btn-form-author" data-toggle="modal" data-target="#login-modal"><i
+								class="mdicon mdicon-person mdicon--first"></i><span>Login / Sign up</span></a>
+					</div>
+				</div>
+			</div><!-- Off-canvas menu -->
+			<a href="#" class="atbs-go-top btn btn-default hidden-xs js-go-top-el"><i class="mdicon mdicon-arrow_upward"></i></a>
+		</div><!-- .site-wrapper -->
+
+		<script src="<%= asset_path 'jquery.js' %>"></script>
+		<script src="<%= asset_path 'sidebar.js' %>"></script>
+		<script src="<%= asset_path 'owl-carousel.min.js' %>"></script>
+		<script src="<%= asset_path 'scripts.js' %>"></script>
+	</body>
+</html>
