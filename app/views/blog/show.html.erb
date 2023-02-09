@@ -3,7 +3,7 @@
         <div class="atbs-block atbs-block--fullwidth atbs-single-header">
             <div class="single-header__inner">
                 <div class="entry-thumb single-entry-thumb">
-                    <img src="<%= asset_path 'temp/cover-1.png' %>" alt="File not found">
+                    <img src="https://cypselus.cileto.com/theglobalcr/post/<%= @post.id %>/<%= @post.cover %>" alt="File not found">
                 </div>
             </div>
         </div>
@@ -14,12 +14,15 @@
                         <div class="single-content">
                             <header class="single-header inverse-text">
                                 <a href="./category.html" class="entry-cat post__cat">Tendencia</a>
-                                <h1 class="entry-title f-44 f-w-700">Costa Rica tendrá su propio álbum dedicado a Parques Nacionales</h1>
+                                <h1 class="entry-title f-44 f-w-700"><%= @post.title %></h1>
                             </header>
                             <div class="single-body entry-content typography-copy">
                                 <div class="single-row">
                                     <div class="single-presentation">
-                                        <p>A partir del mes de abril todos los ticos podrán coleccionar las mejores fotografías de los Parques Nacionales, 
+                                        <%= @post.body.html_safe %>
+                                        <%
+=begin%>
+ <p>A partir del mes de abril todos los ticos podrán coleccionar las mejores fotografías de los Parques Nacionales, 
                                         especies silvestres y flora del país con el álbum de Panini dedicado a las maravillas naturales de Costa Rica.</p>
 
                                         <p>El álbum contiene 48 páginas en las que se podrá coleccionar 242 postales con las mejores fotografías de los 30 
@@ -52,16 +55,18 @@
                                         <h3>Le invitamos a seguir nuestra página de Facebook</h3>
 
                                         <p>El lanzamiento y venta del álbum se realizará en el mes de abril, el anuncio se hizo en la Expo Dipo 2023, en la que 
-                                        se promueve la reactivación económica nacional y que en su segunda edición se enfocó en la temática de la sostenibilidad.</p>
+                                        se promueve la reactivación económica nacional y que en su segunda edición se enfocó en la temática de la sostenibilidad.</p> 
+<%
+=end%>
 
                                         <footer class="single-footer entry-footer">
                                             <div class="entry-interaction entry-interaction--horizontal">
                                                 <div class="entry-interaction__left">
                                                     <div class="entry-tags">
                                                         <ul>
-                                                            <li><a href="./tags.html" class="post-tag" rel="tag">Lifestyle</a></li>
-                                                            <li><a href="./tags.html" class="post-tag" rel="tag">Travel</a></li>
-                                                            <li><a href="./tags.html" class="post-tag" rel="tag">Fashion</a></li>
+                                                            <% JSON.parse(@post.tags).each do |tag| %>
+                                                                <li><a href="./tags.html" class="post-tag" rel="tag">#<%= tag["value"] %></a></li>
+                                                            <% end %>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -197,7 +202,9 @@
                             </div>
                         </div><!-- .single-content -->
                     </article>
-                    <div class="comments-section single-entry-section">
+                    <%
+=begin%>
+ <div class="comments-section single-entry-section">
                         <div id="comments" class="comments-area">
                             <div class="block-heading block-heading_style-1 block-heading-no-line">
                                 <h4 class="block-heading__title">5 Comments</h4>
@@ -346,7 +353,9 @@
                                 </form>
                             </div><!-- #respond -->
                         </div><!-- #comments -->
-                    </div>
+                    </div> 
+<%
+=end%>
                     <div class="atbs-block related-posts">
                         <div class="block-heading block-heading_style-1 block-heading-no-line">
                             <h4 class="block-heading__title">
